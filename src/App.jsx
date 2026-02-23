@@ -1,15 +1,20 @@
 import { useEffect, useState } from 'react'
 import './App.css'
+import ProductCard from './components/ProductCard';
 
 function App() {
-  const [products, setProducts] = useState([]);
+  let [products, setProducts] = useState([]);
+
+  console.log('app')
 
   function apiCallProducts() {
+    console.log('useEffect')
+
     fetch('https://fakestoreapi.com/products')
       .then(function (result) { return result.json() })
-      .then(products => {
-        console.log(products)
-        setProducts(products);
+      .then(data => {
+        console.log(data)
+        setProducts(data);
       })
   }
 
@@ -18,13 +23,7 @@ function App() {
 
   return (
     <>
-      <ul>
-        {products.map((product) => {
-          return (
-            <li key={product.id}>{product.title}</li>
-          )
-        })}
-      </ul>
+      {products.map((product) => <ProductCard product={product} />)}
     </>
   )
 }
