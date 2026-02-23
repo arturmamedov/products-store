@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 import ProductCard from './components/ProductCard';
+import SearchBar from './components/SearchBar';
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -27,22 +28,11 @@ function App() {
     setFilteredProducts(filteredProducts)
   }
 
-  const resultProducts = filteredProducts ? true : false;
-  console.log('result', resultProducts)
-
   return (
     <>
-      <form className="search-bar" onSubmit={onSearchForm}>
-        <input
-          type="text"
-          placeholder="Cerca prodotti..."
-          value={searchProduct}
-          onChange={(e) => setSearchProduct(e.target.value)}
-        />
-        <input type="submit" value="Cerca" />
-      </form>
+      <SearchBar searchProduct={searchProduct} setSearchProduct={setSearchProduct} onSearchForm={onSearchForm} />
 
-      {filteredProducts.length == 0 ? filteredProducts.map((product) => <ProductCard product={product} />) : 'Nessun prodotto trovato'}
+      {filteredProducts.length != 0 ? filteredProducts.map((product) => <ProductCard key={product.id} product={product} />) : 'Nessun prodotto trovato'}
     </>
   )
 }
