@@ -1,6 +1,8 @@
 import { useSearch } from "../contexts/SearchContext"
 
-export default function SearchBar({ searchProduct, setSearchProduct, onSearchForm }) {
+export default function SearchBar() {
+    const { searchProduct, setSearchProduct, onSearchForm } = useSearch();
+
     return (
         <form className="search-bar" onSubmit={onSearchForm}>
             <input
