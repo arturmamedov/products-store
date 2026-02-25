@@ -15,8 +15,8 @@ function App() {
         <div className="row justify-content-start g-4">
           {filteredProducts.length != 0 ? filteredProducts.map((product) => {
             return (
-              <div className="col-6 col-lg-4">
-                <ProductCard key={product.id} product={product} />
+              <div key={product.id} className="col-6 col-lg-4">
+                <ProductCard product={product} />
               </div>
             )
           }) : 'Nessun prodotto trovato'}
