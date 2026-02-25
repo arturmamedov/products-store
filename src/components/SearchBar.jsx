@@ -1,3 +1,5 @@
+import { useSearch } from "../contexts/SearchContext"
+
 export default function SearchBar({ searchProduct, setSearchProduct, onSearchForm }) {
     return (
         <form className="search-bar" onSubmit={onSearchForm}>
