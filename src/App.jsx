@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 import ProductCard from './components/ProductCard';
-import SearchBar from './components/SearchBar';
+import Header from './components/layout/Header';
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -30,7 +30,7 @@ function App() {
 
   return (
     <>
-      <SearchBar searchProduct={searchProduct} setSearchProduct={setSearchProduct} onSearchForm={onSearchForm} />
+      <Header searchProduct={searchProduct} setSearchProduct={setSearchProduct} onSearchForm={onSearchForm} />
 
       {filteredProducts.length != 0 ? filteredProducts.map((product) => <ProductCard key={product.id} product={product} />) : 'Nessun prodotto trovato'}
     </>
