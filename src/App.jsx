@@ -4,7 +4,7 @@ import Header from "./components/layout/Header";
 import { useSearch } from "./contexts/SearchContext";
 
 function App() {
-  const { filteredProducts, productsDummy } = useSearch();
+  const { filteredProducts2, productsDummy } = useSearch();
 
   return (
     <>
